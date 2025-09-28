@@ -10,6 +10,16 @@ namespace BudgetBook
         {
             Console.WriteLine("収入を追加します。");
             // 収入追加の処理をここに記述
+            Console.WriteLine("金額を入力してください。");
+            string? inputStr = Console.ReadLine();
+            if (int.TryParse(inputStr, out int input))
+            {
+                // 入力値inputを使用した処理をここに記述
+            }
+            else
+            {
+                Console.WriteLine("無効な入力です。数値を入力してください。");
+            }
         }
         public static void AddExpense()
         {

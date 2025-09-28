@@ -18,6 +18,10 @@ namespace BudgetBook
         public static string GetCsvPath()
         {
             var csvPath = configuration["Export:CsvPath"];
+            if (string.IsNullOrEmpty(csvPath))
+            {
+                throw new InvalidOperationException("CSVパスが設定ファイルに存在しません。");
+            }
             // 絶対パスに変換して返す
             return Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), csvPath));
         }
