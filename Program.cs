@@ -6,8 +6,6 @@
         {
             try
             {
-
-
                 string chooseResult = "0";
                 while (chooseResult != "6")
                 {

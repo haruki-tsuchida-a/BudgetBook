@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Data.SqlClient;
 
 namespace BudgetBook
 {
@@ -9,12 +10,17 @@ namespace BudgetBook
         public static void AddIncome()
         {
             Console.WriteLine("収入を追加します。");
-            // 収入追加の処理をここに記述
             Console.WriteLine("金額を入力してください。");
             string? inputStr = Console.ReadLine();
             if (int.TryParse(inputStr, out int input))
             {
-                // 入力値inputを使用した処理をここに記述
+                string query = "INSERT INTO Incomes (Amount, Date) VALUES (@Amount, @Date)";
+                SqlServerHelper.ExecuteNonQuery(
+                    query,
+                    new SqlParameter("@Amount", input),
+                    new SqlParameter("@Date", DateTime.Now)
+                );
+                Console.WriteLine("収入を追加しました。");
             }
             else
             {
