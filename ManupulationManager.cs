@@ -30,7 +30,10 @@ namespace BudgetBook
         public static void ExportToCSV()
         {
             Console.WriteLine("CSV出力を行います。");
-            // CSV出力の処理をここに記述
+            string path = ConfigurationHelper.GetCsvPath();
+            // ここでpathを使ってCSVファイルを出力
+            Console.WriteLine($"CSVファイルの出力先: {path}");
+            // 例: File.WriteAllText(path, csvContent);
         }
     }
 }
